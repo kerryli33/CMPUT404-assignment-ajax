@@ -72,15 +72,18 @@ function drawCircle(context,entity) {
         var x = entity["x"];
         var y = entity["y"];
         //moveTo(x,y);
-        fillStyle = entity["colour"];
-        strokeStyle = fillStyle;
+        strokeStyle = entity["colour"];
+        //fills translucent
+        fillStyle = strokeStyle.splice(1,0,"80");
         arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, false);  
-        stroke();                                
+        fill();     
+        stroke();
+                                
     }
 }
 function prepEntity(entity) {
     if (!entity["colour"]) {
-        entity["colour"] = colorlist.find(Math.random()*colorlist.length);
+        entity["colour"] = colorlist[Math.floor(Math.random()*colorlist.length)];
     }
     if (!entity["radius"]) {
         entity["radius"] = 50;
