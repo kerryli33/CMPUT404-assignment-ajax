@@ -59,7 +59,7 @@ function sendJSONXMLHTTPRequest(url, objects, callback) {
    else{
        fetch(url,metaData)
        .then(body=>body.json())
-       .catch(error => console.error("Error: ",error))
+       .catch(error => console.error("Error: ",error));
    }
    
 }
